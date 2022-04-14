@@ -9,8 +9,10 @@ export enum Stone {
   White,
 }
 
+export type Board = Array<Array<Stone>>
+
 export type State = {
   turn: Turn
   isGameOver: boolean
-  board: Array<Array<Stone>>
+  board: Board
 }

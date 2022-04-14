@@ -7,6 +7,7 @@ import css from 'rollup-plugin-css-only'
 import postcss from 'rollup-plugin-postcss'
 import autoPreprocess from 'svelte-preprocess'
 import typescript from '@rollup/plugin-typescript'
+import replace from 'rollup-plugin-replace'
 
 const production = !process.env.ROLLUP_WATCH
 
@@ -54,8 +55,13 @@ export default {
     typescript({ sourceMap: !production }),
     // we'll extract any component CSS out into
     // a separate file - better for performance
+    //
     postcss({
       plugins: [],
+    }),
+
+    replace({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
     }),
 
     // If you have external dependencies installed from

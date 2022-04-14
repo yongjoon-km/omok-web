@@ -11,4 +11,5 @@
 <button
   class="rounded-full w-full h-full block box-border"
   on:click={handleClick}
+  disabled={$state.isGameOver}
 />

@@ -13,7 +13,7 @@
   })
 </script>
 
-<div class="bg-amber-800 w-96 h-96 bg-white rounded-lg">
+<div class="bg-amber-800 w-96 h-96 rounded-lg">
   <div class="flex flex-col w-full h-full">
     {#each boardGrid as row, x}
       <div class="flex flex-row justify-between w-full h-full">

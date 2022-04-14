@@ -1,26 +1,29 @@
-<script>
+<script lang="ts">
   import BoardButton from './BoardButton.svelte'
-  let boardGrid = []
-  for (let i = 0; i < 15; i++) {
-    boardGrid.push([])
-    for (let j = 0; j < 15; j++) {
-      boardGrid[i].push(false)
-    }
-  }
-  let boardWidth
-  let boardHeight
-  $: console.log(boardWidth)
+  import BoardWhiteStone from './BoardWhiteStone.svelte'
+  import BoardBlackStone from './BoardBlackStone.svelte'
+  import { state } from '../action/gameStore.ts'
+  import { Board, Stone } from '../action/gameTypes.ts'
+  import BoardBlackStone from './BoardBlackStone.svelte'
+
+  let boardGrid: Board
+
+  state.subscribe(({ board }) => {
+    boardGrid = board
+  })
 </script>
 
-<div bind:offsetWidth={boardWidth} class="w-96 h-96 bg-white rounded-lg">
+<div class="bg-amber-800 w-96 h-96 bg-white rounded-lg">
   <div class="flex flex-col w-full h-full">
-    {#each boardGrid as row}
+    {#each boardGrid as row, x}
       <div class="flex flex-row justify-between w-full h-full">
-        {#each row as col}
-          {#if col === true}
-            <BoardButton />
+        {#each row as col, y}
+          {#if col === Stone.Black}
+            <BoardBlackStone />
+          {:else if col === Stone.White}
+            <BoardWhiteStone />
           {:else}
-            <BoardButton />
+            <BoardButton {x} {y} />
           {/if}
         {/each}
       </div>

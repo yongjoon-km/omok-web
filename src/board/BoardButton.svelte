@@ -1,7 +1,7 @@
 <script lang="ts">
   export let x: number, y: number
-  import { place } from '../action/gameAction.ts'
-  import { state } from '../action/gameStore.ts'
+  import { place } from '../action/gameAction'
+  import { state } from '../action/gameStore'
 
   const handleClick = () => {
     state.update((s) => place(s, x, y))

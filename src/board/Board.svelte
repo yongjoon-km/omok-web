@@ -2,9 +2,8 @@
   import BoardButton from './BoardButton.svelte'
   import BoardWhiteStone from './BoardWhiteStone.svelte'
   import BoardBlackStone from './BoardBlackStone.svelte'
-  import { state } from '../action/gameStore.ts'
-  import { Board, Stone } from '../action/gameTypes.ts'
-  import BoardBlackStone from './BoardBlackStone.svelte'
+  import { state } from '../action/gameStore'
+  import { Board, Stone } from '../action/gameTypes'
 
   let boardGrid: Board
 

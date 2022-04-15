@@ -1,4 +1,4 @@
-import { Board, State, Stone, Turn } from './gameTypes'
+import { Board, State, Stone, Turn, Winner } from './gameTypes'
 import { Writable, writable } from 'svelte/store'
 
 const BOARD_WIDTH = 15
@@ -16,6 +16,7 @@ function generateIntialBoard(): Board {
 }
 
 const initialState: State = {
+  winner: null,
   turn: Turn.Black,
   isGameOver: false,
   board: generateIntialBoard(),

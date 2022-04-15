@@ -3,6 +3,8 @@ export enum Turn {
   White,
 }
 
+export type Winner = Turn | null
+
 export enum Stone {
   Empty,
   Black,
@@ -12,6 +14,7 @@ export enum Stone {
 export type Board = Array<Array<Stone>>
 
 export type State = {
+  winner: Winner
   turn: Turn
   isGameOver: boolean
   board: Board

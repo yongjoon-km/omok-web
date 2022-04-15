@@ -1,12 +1,12 @@
 <script>
   import Board from './board/Board.svelte'
   import GiveUpButton from './button/GiveUpButton.svelte'
-  import GameOverDisplay from './gameover-view/GameOverDisplay.svelte'
+  import GameState from './gameover-view/GameState.svelte'
 </script>
 
 <main>
   <div class="flex flex-col justify-center items-center w-screen h-screen">
-    <GameOverDisplay />
+    <GameState />
     <Board />
     <GiveUpButton />
   </div>

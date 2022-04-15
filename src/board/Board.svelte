@@ -12,8 +12,13 @@
   })
 </script>
 
-<div class="bg-amber-800 w-96 h-96 rounded-lg">
-  <div class="flex flex-col w-full h-full">
+<div class="w-96 h-96 rounded-lg">
+  <img
+    class="absolute p-3 w-96 h-96 -z-40"
+    src="./assets/omokboard.png"
+    alt="omokboard"
+  />
+  <div class="flex flex-col w-full h-full z-40">
     {#each boardGrid as row, x}
       <div class="flex flex-row justify-between w-full h-full">
         {#each row as col, y}

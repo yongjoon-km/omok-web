@@ -4,7 +4,7 @@ import { Writable, writable } from 'svelte/store'
 const BOARD_WIDTH = 15
 const BOARD_HEIGHT = 15
 
-function generateIntialBoard(): Board {
+export function generateIntialBoard(): Board {
   let board: Board = []
   for (let i = 0; i < BOARD_WIDTH; i++) {
     board.push([])

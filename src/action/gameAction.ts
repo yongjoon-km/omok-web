@@ -1,6 +1,7 @@
 import { State, Turn, Board, Stone, Winner } from './gameTypes'
 import produce from 'immer'
 import { checkGameState } from '../util/boardUtil'
+import { generateIntialBoard } from './gameStore'
 
 function place(state: State, x: number, y: number): State {
   const { turn, board, isGameOver } = state
@@ -34,4 +35,14 @@ function giveup(state: State): State {
   return { ...state, isGameOver: true, winner }
 }
 
-export { place, giveup }
+function restart(state: State): State {
+  return {
+    ...state,
+    isGameOver: false,
+    winner: null,
+    turn: Turn.Black,
+    board: generateIntialBoard(),
+  }
+}
+
+export { place, giveup, restart }

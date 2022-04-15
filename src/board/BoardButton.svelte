@@ -9,7 +9,7 @@
 </script>
 
 <button
-  class="rounded-full w-full h-full block box-border"
+  class="opacity-0 hover:opacity-100 rounded-full w-full h-full block "
   on:click={handleClick}
   disabled={$state.isGameOver}
 />

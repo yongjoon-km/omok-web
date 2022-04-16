@@ -20,6 +20,7 @@ export function sendMessage(message: Message) {
   if (ws.readyState === WebSocket.OPEN) {
     ws.send(JSON.stringify(message))
   } else {
-    console.error(`The websocket is closed ${message} is failed`)
+    // if websocket is not connected, just update local state
+    updateGameStateFromServerMessage(message)
   }
 }

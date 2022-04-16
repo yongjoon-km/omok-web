@@ -19,3 +19,8 @@ export type State = {
   isGameOver: boolean
   board: Board
 }
+
+export type Position = {
+  x: number
+  y: number
+}

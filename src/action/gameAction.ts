@@ -1,11 +1,12 @@
-import { State, Turn, Board, Stone, Winner } from './gameTypes'
+import { State, Turn, Board, Stone, Winner, Position } from './gameTypes'
 import produce from 'immer'
 import { checkGameState } from '../util/boardUtil'
 import { generateIntialBoard } from './gameStore'
 
-function place(state: State, x: number, y: number): State {
+function place(state: State, position: Position): State {
   const { turn, board, isGameOver } = state
 
+  const { x, y } = position
   const newBoardValue = turn === Turn.White ? Stone.White : Stone.Black
   const newBoard: Board = produce(board, (draft) => {
     draft[x][y] = newBoardValue

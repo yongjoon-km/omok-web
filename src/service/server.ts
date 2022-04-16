@@ -1,7 +1,7 @@
-type Message = {
-  type: string
-  args: Object
-}
+import { dispatch } from '../action/gameStore'
+import { Position } from '../action/gameTypes'
+import { updateGameStateFromServerMessage } from './omok'
+import { Message } from './type'
 
 const ws = new WebSocket('ws://localhost:8080/ws')
 
@@ -12,13 +12,7 @@ ws.onopen = () => {
 ws.onmessage = (event) => {
   const wsMessage: Message = JSON.parse(event.data)
 
-  console.log(wsMessage)
-  switch (wsMessage.type) {
-    case 'place':
-      console.log('place message is given')
-    default:
-      break
-  }
+  updateGameStateFromServerMessage(wsMessage)
 }
 
 export function sendMessage(message: Message) {

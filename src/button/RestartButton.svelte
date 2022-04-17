@@ -1,10 +1,7 @@
 <script lang="ts">
-  import { state } from '../action/gameStore'
-  import { restart } from '../action/gameAction'
+  import { restart } from '../service/omok'
 
-  const handleClick = () => {
-    state.update(restart)
-  }
+  const handleClick = () => restart()
 </script>
 
 <button on:click={handleClick} class="btn btn-outline btn-wide">Restart</button>

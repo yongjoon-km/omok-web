@@ -1,6 +1,6 @@
 import { Board, Position, State, Stone, Turn, Winner } from './gameTypes'
 import { Writable, writable } from 'svelte/store'
-import { place } from './gameAction'
+import { giveup, place, restart } from './gameAction'
 
 const BOARD_WIDTH = 15
 const BOARD_HEIGHT = 15
@@ -29,6 +29,12 @@ export const dispatch = (type: string, args: Object) => {
   switch (type) {
     case 'place':
       state.update((s) => place(s, args as Position))
+      break
+    case 'giveup':
+      state.update(giveup)
+      break
+    case 'restart':
+      state.update(restart)
       break
     default:
       break

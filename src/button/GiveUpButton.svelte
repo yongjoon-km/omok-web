@@ -1,10 +1,7 @@
 <script>
-  import { giveup } from '../action/gameAction'
-  import { state } from '../action/gameStore'
+  import { giveup } from '../service/omok'
 
-  const handleClick = () => {
-    state.update(giveup)
-  }
+  const handleClick = () => giveup()
 </script>
 
 <button on:click={handleClick} class="btn btn-outline btn-wide">Give Up</button>

@@ -1,11 +1,9 @@
 <script lang="ts">
   export let x: number, y: number
+  import { place } from '../service/omok'
   import { state } from '../action/gameStore'
-  import { place as socketPlace } from '../service/omok'
 
-  const handleClick = () => {
-    socketPlace(x, y, $state.turn)
-  }
+  const handleClick = () => place(x, y)
 </script>
 
 <button

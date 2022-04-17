@@ -1,5 +1,4 @@
 import { dispatch } from '../action/gameStore'
-import { Turn, Position } from '../action/gameTypes'
 import { sendMessage } from './server'
 import { Message } from './type'
 
@@ -24,19 +23,5 @@ export function restart() {
 
 export function updateGameStateFromServerMessage(message: Message) {
   const { type, args } = message
-  switch (type) {
-    case 'place':
-      const { x, y } = args as Position
-      dispatch('place', { x, y })
-      console.log('place message is given')
-      break
-    case 'giveup':
-      dispatch('giveup', {})
-      break
-    case 'restart':
-      dispatch('restart', {})
-      break
-    default:
-      break
-  }
+  dispatch(type, args)
 }

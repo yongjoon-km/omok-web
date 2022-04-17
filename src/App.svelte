@@ -1,6 +1,6 @@
 <script>
   import Board from './board/Board.svelte'
-  import GameState from './gameover-view/GameState.svelte'
+  import GameState from './component/GameState.svelte'
   import GameControll from './component/GameControll.svelte'
 </script>
 

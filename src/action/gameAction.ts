@@ -46,4 +46,14 @@ function restart(state: State): State {
   }
 }
 
-export { place, giveup, restart }
+function start(state: State, userStone: Turn): State {
+  return {
+    ...state,
+    isGameOver: false,
+    winner: null,
+    turn: Turn.Black,
+    userStone,
+  }
+}
+
+export { place, giveup, restart, start }

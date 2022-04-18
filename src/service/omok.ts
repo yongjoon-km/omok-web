@@ -1,9 +1,7 @@
-import { dispatch } from '../action/gameStore'
-import { generateId } from '../util/stateUtil'
+import { dispatch, ID } from '../action/gameStore'
+import { Turn } from '../action/gameTypes'
 import { sendMessage } from './server'
 import { Message } from './type'
-
-const ID: string = generateId()
 
 export function place(x: number, y: number) {
   const message = {
@@ -21,6 +19,11 @@ export function giveup() {
 
 export function restart() {
   const message = { type: 'restart', args: {} }
+  sendMessage(message)
+}
+
+export function start(userStone: Turn) {
+  const message = { type: 'init', args: { id: ID, userStone } }
   sendMessage(message)
 }
 

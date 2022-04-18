@@ -27,7 +27,20 @@ export function start(userStone: Turn) {
   sendMessage(message)
 }
 
+export function join() {
+  const message = { type: 'join', args: { id: ID } }
+  sendMessage(message)
+}
+
 export function updateGameStateFromServerMessage(message: Message) {
   const { type, args } = message
+  // TODO: Fix to start only when start button is clicked
+  // Need to store opponent id to store
+  if (type === 'join') {
+    const joinArgs = args as { id: string }
+    if (joinArgs.id !== ID) {
+      start(Turn.Black)
+    }
+  }
   dispatch(type, args)
 }

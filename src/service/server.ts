@@ -1,12 +1,13 @@
 import { dispatch } from '../action/gameStore'
 import { Position } from '../action/gameTypes'
-import { updateGameStateFromServerMessage } from './omok'
+import { join, updateGameStateFromServerMessage } from './omok'
 import { Message } from './type'
 
 const ws = new WebSocket('ws://localhost:8080/ws')
 
 ws.onopen = () => {
   console.log('server is connected')
+  join()
 }
 
 ws.onmessage = (event) => {

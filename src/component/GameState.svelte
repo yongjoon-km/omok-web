@@ -1,6 +1,6 @@
 <script lang="ts">
   import { state } from '../action/gameStore'
-  import { Turn, Winner } from '../action/gameTypes'
+  import { GameState, Turn, Winner } from '../action/gameTypes'
 
   const getWinnerText = (winner: Winner) => {
     switch (winner) {
@@ -14,8 +14,10 @@
   }
 </script>
 
-{#if $state.isGameOver === true}
+{#if $state.gameState === GameState.GameOver}
   <div><p class="text-white">{getWinnerText($state.winner)} is won!!!</p></div>
-{:else}
+{:else if $state.gameState === GameState.Playing}
   <div><p class="text-white">game is playing</p></div>
+{:else}
+  <div><p class="text-white">Waiting another player!</p></div>
 {/if}

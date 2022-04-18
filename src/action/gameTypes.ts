@@ -18,6 +18,7 @@ export type State = {
   turn: Turn
   isGameOver: boolean
   board: Board
+  userStone: Turn | null
 }
 
 export type Position = {
@@ -25,7 +26,7 @@ export type Position = {
   y: number
 }
 
-export enum GameState {
+export enum GamePlayingState {
   Initializaing,
   Playing,
   GameOver,

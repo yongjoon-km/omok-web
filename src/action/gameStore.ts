@@ -21,6 +21,7 @@ const initialState: State = {
   turn: Turn.Black,
   isGameOver: false,
   board: generateIntialBoard(),
+  userStone: null,
 }
 
 export const state: Writable<State> = writable(initialState)

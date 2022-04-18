@@ -12,6 +12,8 @@ ws.onopen = () => {
 ws.onmessage = (event) => {
   const wsMessage: Message = JSON.parse(event.data)
 
+  console.log('got message', wsMessage)
+
   updateGameStateFromServerMessage(wsMessage)
 }
 

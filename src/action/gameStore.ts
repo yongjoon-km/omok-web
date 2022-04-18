@@ -1,4 +1,12 @@
-import { Board, Position, State, Stone, Turn, Winner } from './gameTypes'
+import {
+  Board,
+  GameState,
+  Position,
+  State,
+  Stone,
+  Turn,
+  Winner,
+} from './gameTypes'
 import { Writable, writable } from 'svelte/store'
 import { giveup, place, restart, start } from './gameAction'
 import { generateId } from '../util/stateUtil'
@@ -22,7 +30,7 @@ export function generateIntialBoard(): Board {
 const initialState: State = {
   winner: null,
   turn: Turn.Black,
-  isGameOver: false,
+  gameState: GameState.Initializaing,
   board: generateIntialBoard(),
   userStone: null,
 }
@@ -53,7 +61,7 @@ export const dispatch = (type: string, args: Object) => {
     case 'restart':
       state.update(restart)
       break
-    case 'start':
+    case 'init':
       const startArgs = args as { id: string; userStone: Turn }
       state.update((s) =>
         start(s, getMyUserStone(startArgs.id, startArgs.userStone))

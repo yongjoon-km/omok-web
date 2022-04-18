@@ -16,7 +16,7 @@ export type Board = Array<Array<Stone>>
 export type State = {
   winner: Winner
   turn: Turn
-  isGameOver: boolean
+  gameState: GameState
   board: Board
   userStone: Turn | null
 }
@@ -26,7 +26,7 @@ export type Position = {
   y: number
 }
 
-export enum GamePlayingState {
+export enum GameState {
   Initializaing,
   Playing,
   GameOver,

@@ -1,4 +1,4 @@
-import { Board, Stone } from '../action/gameTypes'
+import { Board, GameState, Stone } from '../action/gameTypes'
 
 const directions = [
   [1, 0],
@@ -11,20 +11,20 @@ const directions = [
   [1, 1],
 ]
 
-export function checkGameState(board: Board): boolean {
+export function checkGameState(board: Board): GameState {
   for (let i = 0; i < board.length; i++) {
     for (let j = 0; j < board[i].length; j++) {
       if (board[i][j] !== Stone.Empty) {
         for (let direction of directions) {
           const visited = generateVisited()
           if (dfs(board, visited, i, j, direction, 1)) {
-            return true
+            return GameState.GameOver
           }
         }
       }
     }
   }
-  return false
+  return GameState.Playing
 }
 
 function generateVisited(): Array<Array<boolean>> {

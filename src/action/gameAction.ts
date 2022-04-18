@@ -51,11 +51,11 @@ function restart(state: State): State {
     winner: null,
     turn: Turn.Black,
     board: generateIntialBoard(),
+    userStone: state.userStone === Turn.Black ? Turn.White : Turn.Black,
   }
 }
 
 function start(state: State, userStone: Turn): State {
-  console.log('starting', userStone)
   return {
     ...state,
     gameState: GameState.Playing,

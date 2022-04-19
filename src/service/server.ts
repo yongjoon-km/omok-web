@@ -2,8 +2,13 @@ import { dispatch } from '../action/gameStore'
 import { Position } from '../action/gameTypes'
 import { join, updateGameStateFromServerMessage } from './omok'
 import { Message } from './type'
+import { location } from 'svelte-spa-router'
 
-const ws = new WebSocket('ws://localhost:8080/ws')
+let roomHash: string = ''
+location.subscribe((l) => {
+  roomHash = l.split('/')[1]
+})
+const ws = new WebSocket(`ws://localhost:8080/ws/${roomHash}`)
 
 ws.onopen = () => {
   console.log('server is connected')

@@ -1781,6 +1781,11 @@
   dependencies:
     "picomatch" "^2.2.1"
 
+"regexparam@2.0.0":
+  "integrity" "sha512-gJKwd2MVPWHAIFLsaYDZfyKzHNS4o7E/v8YmNf44vmeV2e4YfVoDToTOKTvE7ab68cRJ++kLuEXJBaEeJVt5ow=="
+  "resolved" "https://registry.npmjs.org/regexparam/-/regexparam-2.0.0.tgz"
+  "version" "2.0.0"
+
 "regexpp@^3.2.0":
   "integrity" "sha512-pq2bWo9mVD43nbts2wGv17XLiNLya+GklZ8kaDLV2Z08gDCsGpnKn9BFMepvWuHCbyVvY7J5o5+BVvoQbmlJLg=="
   "resolved" "https://registry.npmjs.org/regexpp/-/regexpp-3.2.0.tgz"
@@ -2126,6 +2131,13 @@
     "magic-string" "^0.25.7"
     "sorcery" "^0.10.0"
     "strip-indent" "^3.0.0"
+
+"svelte-spa-router@^3.2.0":
+  "integrity" "sha512-igemo5Vs82TGBBw+DjWt6qKameXYzNs6aDXcTxou5XbEvOjiRcAM6MLkdVRCatn6u8r42dE99bt/br7T4qe/AQ=="
+  "resolved" "https://registry.npmjs.org/svelte-spa-router/-/svelte-spa-router-3.2.0.tgz"
+  "version" "3.2.0"
+  dependencies:
+    "regexparam" "2.0.0"
 
 "svelte@^3.0.0", "svelte@^3.2.0", "svelte@^3.23.0", "svelte@^3.24.0", "svelte@>=3.5.0":
   "integrity" "sha512-4JaJp3HEoTCGARRWZQIZDUanhYv0iyoHikklVHVLH9xFE9db22g4TDv7CPeNA8HD1JgjXI1vlhR1JZvvhaTu2Q=="

@@ -1,15 +1,8 @@
 <script>
-  import Board from './board/Board.svelte'
-  import GameState from './component/GameState.svelte'
-  import GameControll from './component/GameControll.svelte'
-  import GameUserStoneDebugSelect from './component/GameUserStoneDebugSelect.svelte'
+  import Router from 'svelte-spa-router'
+  import routes from './routes'
 </script>
 
-<main>
-  <div class="flex flex-col justify-center items-center w-screen h-screen">
-    <GameUserStoneDebugSelect />
-    <GameState />
-    <Board />
-    <GameControll />
-  </div>
-</main>
+<body>
+  <Router {routes} />
+</body>

@@ -3,6 +3,6 @@
   import routes from './routes'
 </script>
 
-<body>
+<div>
   <Router {routes} />
-</body>
+</div>

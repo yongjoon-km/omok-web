@@ -9,10 +9,10 @@ import {
 } from './gameTypes'
 import produce from 'immer'
 import { checkGameState } from '../util/boardUtil'
-import { generateIntialBoard } from './gameStore'
+import { generateIntialBoard } from './util'
 
 function place(state: State, position: Position): State {
-  const { turn, board, gameState } = state
+  const { turn, board } = state
 
   const { x, y } = position
   const newBoardValue = turn === Turn.White ? Stone.White : Stone.Black

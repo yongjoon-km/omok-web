@@ -10,22 +10,9 @@ import {
 import { Writable, writable } from 'svelte/store'
 import { giveup, place, restart, start } from './gameAction'
 import { generateId } from '../util/stateUtil'
-
-const BOARD_WIDTH = 15
-const BOARD_HEIGHT = 15
+import { generateIntialBoard } from './util'
 
 export const ID: string = generateId()
-
-export function generateIntialBoard(): Board {
-  let board: Board = []
-  for (let i = 0; i < BOARD_WIDTH; i++) {
-    board.push([])
-    for (let j = 0; j < BOARD_HEIGHT; j++) {
-      board[i].push(Stone.Empty)
-    }
-  }
-  return board
-}
 
 const initialState: State = {
   winner: null,

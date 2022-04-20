@@ -11,7 +11,7 @@ const initialInfoAlert: InfoAlert = {
 }
 export const info: Writable<InfoAlert> = writable(initialInfoAlert)
 
-let alertTimeout
+let alertTimeout: NodeJS.Timeout
 
 export const showAlert = (message: string, timeSec: number = 2) => {
   clearTimeout(alertTimeout)

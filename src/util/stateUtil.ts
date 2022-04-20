@@ -1,9 +1,9 @@
-const HASH_SIZE = 3
+const HASH_SIZE = 4
 
-export function generateId(): string {
+export function generateId(keySize: number = HASH_SIZE): string {
   const characters = '0123456789ABCDEFGHIJKLMNPQRSTUVWXYZ'
   let randomString = ''
-  for (let i = 0; i <= HASH_SIZE; i++) {
+  for (let i = 0; i < HASH_SIZE; i++) {
     randomString += characters[Math.floor(Math.random() * characters.length)]
   }
   const id = randomString

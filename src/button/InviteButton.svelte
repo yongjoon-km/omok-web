@@ -1,4 +1,6 @@
 <script lang="ts">
+  let buttonText = 'invite'
+
   const handleClick = () => {
     navigator.clipboard
       .writeText(window.location.href)
@@ -9,6 +11,20 @@
         console.log('copy failed')
       })
   }
+
+  const handleMouseOver = () => {
+    buttonText = window.location.href
+  }
+  const handleMouseLeave = () => {
+    buttonText = 'invite'
+  }
 </script>
 
-<button on:click={handleClick} class="btn btn-outline btn-wide">Invite</button>
+<button
+  on:click={handleClick}
+  on:mouseover={handleMouseOver}
+  on:mouseleave={handleMouseLeave}
+  class="btn btn-outline btn-wide"
+>
+  {buttonText}
+</button>

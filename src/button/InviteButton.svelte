@@ -1,11 +1,12 @@
 <script lang="ts">
+  import { showAlert } from '../store/infoStore'
   let buttonText = 'invite'
 
   const handleClick = () => {
     navigator.clipboard
       .writeText(window.location.href)
       .then(() => {
-        console.log('copy successfully')
+        showAlert('copied to clipboard!!!')
       })
       .catch(() => {
         console.log('copy failed')

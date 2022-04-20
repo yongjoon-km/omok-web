@@ -3,6 +3,7 @@
   import GameState from './component/GameState.svelte'
   import GameControll from './component/GameControll.svelte'
   import GameUserStoneDebugSelect from './component/GameUserStoneDebugSelect.svelte'
+  import InfoAlert from './component/InfoAlert.svelte'
 </script>
 
 <main>
@@ -11,5 +12,8 @@
     <GameState />
     <Board />
     <GameControll />
+    <div class="w-96 py-10">
+      <InfoAlert />
+    </div>
   </div>
 </main>

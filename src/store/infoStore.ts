@@ -11,10 +11,13 @@ const initialInfoAlert: InfoAlert = {
 }
 export const info: Writable<InfoAlert> = writable(initialInfoAlert)
 
+let alertTimeout
+
 export const showAlert = (message: string, timeSec: number = 2) => {
+  clearTimeout(alertTimeout)
   info.update((i) => ({ open: true, message }))
 
-  setTimeout(() => {
+  alertTimeout = setTimeout(() => {
     info.set(initialInfoAlert)
   }, timeSec * 1000)
 }

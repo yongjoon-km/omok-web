@@ -5,6 +5,7 @@
 
   import { state } from '../action/gameStore'
   import { GameState } from '../action/gameTypes'
+  import InviteButton from '../button/InviteButton.svelte'
 </script>
 
 {#if $state.gameState === GameState.GameOver}
@@ -12,5 +13,5 @@
 {:else if $state.gameState === GameState.Playing}
   <GiveUpButton />
 {:else}
-  <StartButton />
+  <InviteButton />
 {/if}

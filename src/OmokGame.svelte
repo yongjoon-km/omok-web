@@ -1,9 +1,15 @@
-<script>
+<script lang="ts">
   import Board from './board/Board.svelte'
   import GameState from './component/GameState.svelte'
   import GameControll from './component/GameControll.svelte'
   import GameUserStoneDebugSelect from './component/GameUserStoneDebugSelect.svelte'
   import InfoAlert from './component/InfoAlert.svelte'
+  import { onMount } from 'svelte'
+  import { connectToGameServer } from './service/server'
+
+  onMount(() => {
+    connectToGameServer()
+  })
 </script>
 
 <main>

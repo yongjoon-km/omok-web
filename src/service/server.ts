@@ -4,23 +4,32 @@ import { join, updateGameStateFromServerMessage } from './omok'
 import { Message } from './type'
 import { location } from 'svelte-spa-router'
 
-let roomHash: string = ''
-location.subscribe((l) => {
-  roomHash = l.split('/')[1]
-})
-const ws = new WebSocket(`ws://localhost:8080/ws/${roomHash}`)
+let ws: WebSocket | null = null
 
-ws.onopen = () => {
-  console.log('server is connected')
-  join()
-}
+export function connectToGameServer() {
+  let roomHash: string = ''
+  location.subscribe((l) => {
+    roomHash = l.split('/')[1]
+  })
+  ws = new WebSocket(`ws://localhost:8080/ws/${roomHash}`)
 
-ws.onmessage = (event) => {
-  const wsMessage: Message = JSON.parse(event.data)
+  ws.onopen = () => {
+    console.log('server is connected')
+    join()
+  }
 
-  console.log('got message', wsMessage)
+  ws.onmessage = (event) => {
+    const wsMessage: Message = JSON.parse(event.data)
 
-  updateGameStateFromServerMessage(wsMessage)
+    console.log('got message', wsMessage)
+
+    updateGameStateFromServerMessage(wsMessage)
+  }
+
+  ws.onclose = () => {
+    console.log('close ws connection')
+    ws = null
+  }
 }
 
 export function sendMessage(message: Message) {

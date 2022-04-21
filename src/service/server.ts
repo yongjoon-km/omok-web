@@ -5,13 +5,14 @@ import { Message } from './type'
 import { location } from 'svelte-spa-router'
 
 let ws: WebSocket | null = null
+const DOMAIN = 'relay.omokgame.com'
 
 export function connectToGameServer() {
   let roomHash: string = ''
   location.subscribe((l) => {
     roomHash = l.split('/')[1]
   })
-  ws = new WebSocket(`ws://localhost:8080/ws/${roomHash}`)
+  ws = new WebSocket(`wss://${DOMAIN}/ws/${roomHash}`)
 
   ws.onopen = () => {
     console.log('server is connected')

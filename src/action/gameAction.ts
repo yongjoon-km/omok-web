@@ -61,8 +61,20 @@ function start(state: State, userStone: Turn): State {
     gameState: GameState.Playing,
     winner: null,
     turn: Turn.Black,
+    board: generateIntialBoard(),
     userStone,
   }
 }
 
-export { place, giveup, restart, start }
+function reset(state: State): State {
+  return {
+    ...state,
+    gameState: GameState.Initializaing,
+    winner: null,
+    turn: Turn.Black,
+    board: generateIntialBoard(),
+    userStone: Turn.Black,
+  }
+}
+
+export { place, giveup, restart, start, reset }

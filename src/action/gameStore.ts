@@ -8,7 +8,7 @@ import {
   Winner,
 } from './gameTypes'
 import { Writable, writable } from 'svelte/store'
-import { giveup, place, restart, start } from './gameAction'
+import { giveup, place, reset, restart, start } from './gameAction'
 import { generateId } from '../util/stateUtil'
 import { generateIntialBoard } from './util'
 
@@ -34,10 +34,12 @@ function getMyUserStone(id: string, userStone: Turn): Turn {
       return Turn.White
     case Turn.White:
       return Turn.Black
+    default:
+      return Turn.Black
   }
 }
 
-export const dispatch = (type: string, args: Object) => {
+export const dispatch = (type: string, args: Object = {}) => {
   switch (type) {
     case 'place':
       state.update((s) => place(s, args as Position))
@@ -53,6 +55,9 @@ export const dispatch = (type: string, args: Object) => {
       state.update((s) =>
         start(s, getMyUserStone(startArgs.id, startArgs.userStone))
       )
+      break
+    case 'reset':
+      state.update(reset)
       break
     default:
       break

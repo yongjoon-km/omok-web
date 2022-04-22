@@ -12,9 +12,9 @@
   })
 </script>
 
-<div class="w-96 h-96 rounded-lg">
+<div class="w-96 h-96 max-w-full rounded-lg">
   <img
-    class="absolute p-3 w-96 h-96 -z-40"
+    class="absolute p-3 w-96 h-96 max-w-full -z-40"
     src="./assets/omokboard.png"
     alt="omokboard"
   />

@@ -18,11 +18,13 @@
 
 <main>
   <div class="flex flex-col justify-center items-center w-screen h-screen">
-    <GameState />
-    <Board />
-    <GameControll />
-    <div class="w-96 py-10">
-      <InfoAlert />
+    <div class="w-96 max-w-full flex flex-col justify-center items-center">
+      <GameState />
+      <Board />
+      <GameControll />
+      <div class="py-10 w-full">
+        <InfoAlert />
+      </div>
     </div>
   </div>
 </main>

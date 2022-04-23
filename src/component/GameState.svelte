@@ -14,10 +14,14 @@
   }
 </script>
 
-{#if $state.gameState === GameState.GameOver}
-  <div><p class="text-white">{getWinnerText($state.winner)} is won!!!</p></div>
-{:else if $state.gameState === GameState.Playing}
-  <div><p class="text-white">game is playing</p></div>
-{:else}
-  <div><p class="text-white">Waiting another player!</p></div>
-{/if}
+<div>
+  <p class="">
+    {#if $state.gameState === GameState.GameOver}
+      {getWinnerText($state.winner)} is won!!!
+    {:else if $state.gameState === GameState.Playing}
+      game is playing
+    {:else}
+      Waiting another player!
+    {/if}
+  </p>
+</div>

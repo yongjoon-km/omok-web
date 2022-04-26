@@ -4,15 +4,14 @@
   import GameControll from './component/GameControll.svelte'
   import InfoAlert from './component/InfoAlert.svelte'
   import { onMount, onDestroy } from 'svelte'
-  import { connectToGameServer } from './service/server'
-  import { dispatch } from './action/gameStore'
+  import { connectToGameServer, clearGameConnection } from './service/server'
 
   onMount(() => {
     connectToGameServer()
   })
 
   onDestroy(() => {
-    dispatch('reset')
+    clearGameConnection()
   })
 </script>
 

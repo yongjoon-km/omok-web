@@ -6,6 +6,9 @@ import { Turn } from '../action/gameTypes'
 let ws: WebSocket | null = null
 const DOMAIN = 'relay.omokgame.com'
 
+let heartbeatInterval: NodeJS.Timer | null = null
+const HEART_BEAT_INTERVAL_SEC = 20
+
 export function connectToGameServer() {
   let roomHash: string = ''
   location.subscribe((l) => {
@@ -17,6 +20,11 @@ export function connectToGameServer() {
     console.log('server is connected')
     const message = { type: 'join', args: { id: ID } }
     sendMessage(message)
+
+    heartbeatInterval = setInterval(
+      sendHeartBeat,
+      HEART_BEAT_INTERVAL_SEC * 1000
+    )
   }
 
   ws.onmessage = (event) => {
@@ -28,7 +36,20 @@ export function connectToGameServer() {
   ws.onclose = () => {
     console.log('close ws connection')
     ws = null
+    if (heartbeatInterval) {
+      clearInterval(heartbeatInterval)
+    }
+    dispatch('reset')
   }
+}
+
+export function clearGameConnection() {
+  ws.close()
+}
+
+function sendHeartBeat() {
+  const message = { type: 'heartbeat', args: {} }
+  sendMessage(message)
 }
 
 export function sendMessage(message: Message) {

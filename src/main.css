@@ -5,3 +5,7 @@
 body {
   padding: 0;
 }
+
+* {
+  touch-action: manipulation;
+}

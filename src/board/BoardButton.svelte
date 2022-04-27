@@ -8,7 +8,7 @@
 </script>
 
 <button
-  class="opacity-0 hover:opacity-100 rounded-full w-full h-full block "
+  class="touch-manipulation opacity-0 hover:opacity-100 rounded-full w-full h-full block "
   on:click={handleClick}
   disabled={$state.gameState !== GameState.Playing ||
     $state.userStone !== $state.turn}

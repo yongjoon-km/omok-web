@@ -23,9 +23,9 @@
       <div class="flex flex-row justify-between w-full h-full">
         {#each row as col, y}
           {#if col === Stone.Black}
-            <BoardBlackStone />
+            <BoardBlackStone {x} {y} />
           {:else if col === Stone.White}
-            <BoardWhiteStone />
+            <BoardWhiteStone {x} {y} />
           {:else}
             <BoardButton {x} {y} />
           {/if}

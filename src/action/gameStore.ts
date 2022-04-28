@@ -1,12 +1,4 @@
-import {
-  Board,
-  GameState,
-  Position,
-  State,
-  Stone,
-  Turn,
-  Winner,
-} from './gameTypes'
+import { GameState, Position, State, Turn } from './gameTypes'
 import { Writable, writable } from 'svelte/store'
 import { giveup, place, reset, restart, start } from './gameAction'
 import { generateId } from '../util/stateUtil'
@@ -20,6 +12,7 @@ const initialState: State = {
   gameState: GameState.Initializaing,
   board: generateIntialBoard(),
   userStone: null,
+  latestStone: null,
 }
 
 export const state: Writable<State> = writable(initialState)

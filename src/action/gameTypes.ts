@@ -19,6 +19,7 @@ export type State = {
   gameState: GameState
   board: Board
   userStone: Turn | null
+  latestStone: Position | null
 }
 
 export type Position = {

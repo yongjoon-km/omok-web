@@ -32,6 +32,7 @@ function place(state: State, position: Position): State {
     board: newBoard,
     gameState: newGameState,
     winner: newWinner,
+    latestStone: { x, y },
   }
 }
 
@@ -52,6 +53,7 @@ function restart(state: State): State {
     turn: Turn.Black,
     board: generateIntialBoard(),
     userStone: state.userStone === Turn.Black ? Turn.White : Turn.Black,
+    latestStone: null,
   }
 }
 
@@ -63,6 +65,7 @@ function start(state: State, userStone: Turn): State {
     turn: Turn.Black,
     board: generateIntialBoard(),
     userStone,
+    latestStone: null,
   }
 }
 
@@ -74,6 +77,7 @@ function reset(state: State): State {
     turn: Turn.Black,
     board: generateIntialBoard(),
     userStone: Turn.Black,
+    latestStone: null,
   }
 }
 

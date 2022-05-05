@@ -3,6 +3,7 @@
   import GameState from './component/GameState.svelte'
   import GameControll from './component/GameControll.svelte'
   import InfoAlert from './component/InfoAlert.svelte'
+  import StonePlaceSound from './component/StonePlaceSound.svelte'
   import { onMount, onDestroy } from 'svelte'
   import { connectToGameServer, clearGameConnection } from './service/server'
 
@@ -24,6 +25,7 @@
       <div class="py-10 w-full">
         <InfoAlert />
       </div>
+      <StonePlaceSound />
     </div>
   </div>
 </main>

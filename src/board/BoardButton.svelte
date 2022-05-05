@@ -4,7 +4,12 @@
   import { state } from '../action/gameStore'
   import { GameState, Turn } from '../action/gameTypes'
 
-  const handleClick = () => place(x, y)
+  import { playPlacingButtonSound } from '../store/soundStore'
+
+  const handleClick = () => {
+    place(x, y)
+    playPlacingButtonSound()
+  }
 </script>
 
 <button

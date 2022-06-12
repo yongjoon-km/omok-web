@@ -21,18 +21,6 @@
   })
 </script>
 
-<audio
-  bind:this={audioRef1}
-  preload="metadata"
-  src="./assets/omok-sound-001.wav"
-/>
-<audio
-  bind:this={audioRef2}
-  preload="metadata"
-  src="./assets/omok-sound-002.wav"
-/>
-<audio
-  bind:this={audioRef3}
-  preload="metadata"
-  src="./assets/omok-sound-003.wav"
-/>
+<audio bind:this={audioRef1} preload="none" src="./assets/omok-sound-001.wav" />
+<audio bind:this={audioRef2} preload="none" src="./assets/omok-sound-002.wav" />
+<audio bind:this={audioRef3} preload="none" src="./assets/omok-sound-003.wav" />
